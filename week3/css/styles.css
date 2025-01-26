@@ -1,0 +1,71 @@
+body {
+  font-family: "Roboto", serif;
+  background-color: rgb(231, 225, 214);
+}
+header {
+  text-align: center;
+  border-bottom: 2px dotted darkslateblue;
+  padding-bottom: 5px;
+}
+
+h1 {
+  color: #1050aa;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 2.2em;
+}
+
+#job-title {
+  font-weight: bold;
+}
+
+.experience,
+.education {
+  border: 2px dashed brown;
+  margin: 10px 0;
+}
+
+a[href*="github"]:hover {
+  color: crimson;
+}
+a[href*="github"]::after {
+  content: url("../images/GitHub-Mark-32px.png");
+}
+
+h2::first-letter {
+  font-size: 3rem;
+}
+
+header a:last-child {
+  margin-left: 20px;
+}
+
+.education .education-list > li:first-child {
+  font-style: italic;
+}
+
+.skills li {
+  list-style-type: none;
+}
+
+/* Experience items except first in dark green */
+.experience > ul > li:first-child ~ li {
+  color: darkGreen;
+}
+
+/* Link icon for .edu links */
+a[href$=".edu"]::before {
+  content: url("../images/link.png");
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* Last skill item styling */
+.skills ul li:last-child {
+  font-size: 1.3rem;
+  background-color: rgba(120, 120, 120, 0.2);
+}
+
+/* Visited header links */
+header a:visited {
+  color: rgb(237, 122, 127);
+}
