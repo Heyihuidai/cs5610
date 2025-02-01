@@ -26,12 +26,8 @@ function displayOrderSummary(order) {
     const summaryDiv = document.getElementById('orderSummary');
     const summaryText = document.getElementById('summaryText');
     
-    const toppingsText = order.toppings.length > 0 
-        ? ` with ${order.toppings.join(', ')}` 
-        : ' with no toppings';
-    
     summaryText.innerHTML = `
-        You ordered a ${order.size} ${order.flavor} bubble tea${toppingsText}.<br>
+        You have ordered a ${order.size} ${order.flavor} boba with these toppings: ${order.toppings.join(' ')}<br>
         Total Price: $${order.finalPrice.toFixed(2)}
     `;
     
@@ -39,6 +35,20 @@ function displayOrderSummary(order) {
 }
 
 function placeOrder(flavor, size, toppings) {
+    // Check if all required fields are selected
+    if (!flavor) {
+        alert('Please select a flavor');
+        return;
+    }
+    if (!size) {
+        alert('Please select a size');
+        return;
+    }
+    if (toppings.length === 0) {
+        alert('Please select at least one topping');
+        return;
+    }
+    
     // Calculate base price (flavor + toppings)
     let basePrice = prices[flavor];
     
