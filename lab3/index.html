@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bubble Tea Order System</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <form id="orderForm">
+        <h2>Bubble Tea Order Form</h2>
+
+        <div class="form-group">
+            <label for="flavor">Choose a flavor:</label>
+            <select id="flavor" required>
+                <option value="original">Original</option>
+                <option value="mango">Mango</option>
+                <option value="strawberry">Strawberry</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="size">Choose a size:</label>
+            <select id="size" required>
+                <option value="">--Please choose a size--</option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="toppings">Choose toppings:<!-- Hold Ctrl/Cmd to select multiple -->:</label>
+            <select id="toppings" multiple>
+                <option value="">--Please choose toppings--</option>
+                <option value="boba">Boba</option>
+                <option value="jelly">Jelly</option>
+                <option value="pudding">Pudding</option>
+            </select>
+        </div>
+        <button type="submit">Place Order</button>
+    </form>
+        <div id="orderSummary">
+            <h3>Order Summary</h3>
+            <p id="summaryText"></p>
+        </div>
+    <script src="js/script.js"></script>
+            
+</body>
+</html>
