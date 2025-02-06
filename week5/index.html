@@ -4,20 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css">
   </head>
 
   <body>
-    <h1>Circle Area Calculator</h1>
-    <p id="radiusDisplay">Radius: </p>
-    <p id="areaDisplay">Area: </p>
-    <button onclick="startCalculation()">Calculate Area</button>
-
-    <!-- <ul class="shopping"> Remember to buy:</ul> -->
-    <!-- <button id="updateImage">Click Me!</button> -->
-    <!-- <img id="shoppingCart"> -->
-    <!-- <button>Red</button> -->
-    <!-- <button>Blue</button> -->
-    <!-- <button>Green</button> -->
-    <script src="js/main.js"></script>
+      <h1>Shopping List</h1>
+      <div>
+          <input type="text" id="newItem" placeholder="Enter item">
+          <button onclick="addItem()">Add Item</button>
+      </div>
+      <ul class="shopping"></ul>
+  
+      <script src="./js/main.js"></script>
   </body>
 </html>
