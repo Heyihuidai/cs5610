@@ -1,0 +1,38 @@
+.squareList {
+    list-style-type: square;
+}
+
+.shopping li {
+    margin: 10px 0;
+}
+
+input {
+    padding: 8px;
+    font-size: 16px;
+    width: 200px;
+}
+
+button {
+    padding: 8px 16px;
+    font-size: 16px;
+}
+
+#colorButtons {
+    margin: 20px 0;
+}
+
+.colorBtn {
+    padding: 8px 16px;
+    font-size: 16px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.shopping li {
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.shopping li del {
+    color: #666;
+}
