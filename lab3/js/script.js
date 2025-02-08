@@ -14,6 +14,21 @@ const prices = {
     pudding: 1.0
 };
 
+function validateSelections() {
+    const flavor = document.getElementById('flavor').value;
+    const size = document.getElementById('size').value;
+
+    if (!flavor || flavor === "") {
+        alert("Please select a flavor.");
+        return false;
+    }
+    if (!size || size === "") {
+        alert("Please select a size.");
+        return false;
+    }
+    return true;
+}
+
 function displayOrderSummary(order) {
     // Console logging for debugging
     console.log("=== Order Summary ===");
@@ -22,16 +37,12 @@ function displayOrderSummary(order) {
     console.log(`Toppings: ${order.toppings.join(', ') || 'None'}`);
     console.log(`Total Price: $${order.finalPrice.toFixed(2)}`);
 
-    // Display in the UI
-    const summaryDiv = document.getElementById('orderSummary');
     const summaryText = document.getElementById('summaryText');
     
     summaryText.innerHTML = `
         You have ordered a ${order.size} ${order.flavor} boba with these toppings: ${order.toppings.join(' ')}<br>
         Total Price: $${order.finalPrice.toFixed(2)}
     `;
-    
-    summaryDiv.style.display = 'block';
 }
 
 function placeOrder(flavor, size, toppings) {
