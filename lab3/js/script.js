@@ -14,6 +14,21 @@ const prices = {
     pudding: 1.0
 };
 
+function validateSelections() {
+    const flavor = document.getElementById('flavor').value;
+    const size = document.getElementById('size').value;
+
+    if (!flavor || flavor === "") {
+        alert("Please select a flavor.");
+        return false;
+    }
+    if (!size || size === "") {
+        alert("Please select a size.");
+        return false;
+    }
+    return true;
+}
+
 function displayOrderSummary(order) {
     // Console logging for debugging
     console.log("=== Order Summary ===");
@@ -22,40 +37,37 @@ function displayOrderSummary(order) {
     console.log(`Toppings: ${order.toppings.join(', ') || 'None'}`);
     console.log(`Total Price: $${order.finalPrice.toFixed(2)}`);
 
-    // Display in the UI
-    const summaryDiv = document.getElementById('orderSummary');
     const summaryText = document.getElementById('summaryText');
+
+    const toppingMessage = order.toppings.length > 0 
+    ? `with these toppings: ${order.toppings.join(', ')}`
+    : 'with no toppings';
     
     summaryText.innerHTML = `
-        You have ordered a ${order.size} ${order.flavor} boba with these toppings: ${order.toppings.join(' ')}<br>
+        You have ordered a ${order.size} ${order.flavor} ${toppingMessage}.<br>
         Total Price: $${order.finalPrice.toFixed(2)}
     `;
-    
-    summaryDiv.style.display = 'block';
 }
 
-function placeOrder(flavor, size, toppings) {
-    // Check if all required fields are selected
-    if (!flavor) {
-        alert('Please select a flavor');
-        return;
-    }
-    if (!size) {
-        alert('Please select a size');
-        return;
-    }
-    if (toppings.length === 0) {
-        alert('Please select at least one topping');
+function placeOrder() {
+    if (!validateSelections()) {
         return;
     }
     
+    // Get the values from the select elements.
+    const flavor = document.getElementById('flavor').value;
+    const size = document.getElementById('size').value;
+    const toppingsSelect = document.getElementById('toppings');
+    // Convert the selected options to an array and filter out any empty selections.
+    const toppings = Array.from(toppingsSelect.selectedOptions)
+                          .map(option => option.value)
+                          .filter(value => value !== "");
+
     // Calculate base price (flavor + toppings)
     let basePrice = prices[flavor];
-    
     // Add topping prices
     const toppingPrice = toppings.reduce((sum, topping) => sum + prices[topping], 0);
     basePrice += toppingPrice;
-    
     // Multiply by size multiplier
     const finalPrice = basePrice * prices[size];
     
@@ -70,14 +82,8 @@ function placeOrder(flavor, size, toppings) {
     displayOrderSummary(order);
 }
 
-// Form submission handler
-document.getElementById('orderForm').addEventListener('submit', function(e) {
+// New Event Listener for the Button
+document.getElementById('placeOrderButton').addEventListener('click', function(e) {
     e.preventDefault();
-    
-    const flavor = document.getElementById('flavor').value;
-    const size = document.getElementById('size').value;
-    const toppingsSelect = document.getElementById('toppings');
-    const toppings = Array.from(toppingsSelect.selectedOptions).map(option => option.value);
-    
-    placeOrder(flavor, size, toppings);
+    placeOrder();
 });
