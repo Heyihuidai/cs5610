@@ -25,6 +25,10 @@ app.get('/', (req, res) => {
   res.send('Hello and welcome to my site!');
 });
 
+app.get('/tasks', (req, res) => {
+  res.send('<h1>List of all the tasks</h1>');
+});
+
 const port = 3000;
 app.listen(port, function() {
   console.log(`Example app listening on port ${port}!`)
