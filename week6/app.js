@@ -22,7 +22,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Hello and welcome to my site!');
 });
 
 const port = 3000;
