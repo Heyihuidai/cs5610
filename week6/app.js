@@ -15,5 +15,9 @@
     //}
 //});
 
-const logger = require('./logger.js');
-logger.log();
+//const logger = require('./logger.js');
+//logger.log();
+
+const express = require('express');
+const app = express();
+console.log(app);
