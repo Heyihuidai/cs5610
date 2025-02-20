@@ -1,9 +1,8 @@
 doctype html
-html(lang="en")
+html
   head
-    title= "Task Details"
+    title Task Details
   body
     h1 You are viewing task #{id}
-    
-    p Task title: #{title}
-    p Task status: #{completed ? "Completed" : "Not Completed"}
+    p The title of the task is #{title}
+    p Task status: #{completed ? "Task is completed" : "Task is not completed"}
