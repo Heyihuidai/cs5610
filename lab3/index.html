@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bubble Tea Order System</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -11,6 +13,7 @@
         <div class="form-group">
             <label for="flavor">Choose a flavor:</label>
             <select id="flavor" required>
+                <option value="">--Please choose a flavor--</option>
                 <option value="original">Original</option>
                 <option value="mango">Mango</option>
                 <option value="strawberry">Strawberry</option>
@@ -36,12 +39,15 @@
                 <option value="pudding">Pudding</option>
             </select>
         </div>
-        <button type="submit">Place Order</button>
+
+        <button id="placeOrderButton" type="submit">Place Order</button>
     </form>
-        <div id="orderSummary">
-            <h3>Order Summary</h3>
-            <p id="summaryText"></p>
-        </div>
+        
+    <div id="orderSummary">
+        <h2>Order Summary</h2>
+        <p id="summaryText">Your order details will appear here.</p>
+    </div>
+
     <script src="js/script.js"></script>
             
 </body>
