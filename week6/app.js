@@ -8,6 +8,9 @@ app.set('views', './views');
 const tasksRouter = require('./routes/tasks');
 app.use('/tasks', tasksRouter);
 
+const usersRouter = require('./routes/users');
+app.use('/users', usersRouter);
+
 app.get('/', (req, res) => {
   res.send('Hello and welcome to my site!');
 });
