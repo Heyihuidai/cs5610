@@ -5,7 +5,6 @@ const axios = require('axios');
 router.get('/', async (req, res) => {
     try {
         const response = await axios.get('https://jsonplaceholder.typicode.com/todos/');
-        console.log('Data was fetched successfully');
         res.json(response.data);
       } catch (error) {
         console.error('Error fetching tasks:', error);
