@@ -18,15 +18,11 @@ router.get('/:taskId', async (req, res) => {
     const taskId = req.params.taskId;
     const response = await axios.get(`https://jsonplaceholder.typicode.com/todos/${taskId}`);
     const task = response.data;
-
-    const userResponse = await axios.get(`https://jsonplaceholder.typicode.com/users/${task.userId}`);
-        const user = userResponse.data;
-    
+ 
     res.render('task', { 
       id: taskId,
       title: task.title,
       completed: task.completed,
-      userName: user.name  
     });
   } catch (error) {
 
