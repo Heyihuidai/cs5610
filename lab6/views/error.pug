@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 Error
+  .alert.alert-danger
+    h2= message
+    if error && error.status
+      h3 Status: #{error.status}
+    if error && error.stack && process.env.NODE_ENV === 'development'
+      pre.mt-3= error.stack
+  
+  p
+    a.btn.btn-primary(href="/tasks") Back to Tasks List
