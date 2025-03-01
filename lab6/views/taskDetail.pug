@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  h1= task.title
+  
+  .container
+    .card.mt-4
+      .card-header
+        h4 Task Details
+      .card-body
+        .row.mb-3
+          .col-md-3.fw-bold Date:
+          .col-md-9
+            if task.date
+              = new Date(task.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+            else
+              span.text-muted No date specified
+        
+        .row.mb-3
+          .col-md-3.fw-bold Status:
+          .col-md-9
+            span(class= task.completed ? 'badge bg-success' : 'badge bg-warning')
+              = task.completed ? 'Completed' : 'Pending'
+        
+        if task.description
+          .row.mb-3
+            .col-md-3.fw-bold Description:
+            .col-md-9= task.description
+        
+        if task.createdAt
+          .row.mb-3
+            .col-md-3.fw-bold Created:
+            .col-md-9= new Date(task.createdAt).toLocaleString()
+        
+        if task.updatedAt
+          .row.mb-3
+            .col-md-3.fw-bold Last Updated:
+            .col-md-9= new Date(task.updatedAt).toLocaleString()
+      
+      .card-footer
+        a.btn.btn-primary.me-2(href='/tasks') Back to Tasks List
